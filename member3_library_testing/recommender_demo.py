@@ -1,8 +1,7 @@
 """
 THÀNH VIÊN 3 - Sinh thử Top 5 phim gợi ý bằng mô hình SVD.
 
-File này không thay thế giao diện Streamlit của Thành viên 4.
-Nó chỉ tạo dữ liệu demo để minh họa kết quả mô hình thư viện.
+Tạo dữ liệu demo để minh họa kết quả mô hình thư viện.
 """
 
 import pandas as pd
