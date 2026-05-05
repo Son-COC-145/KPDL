@@ -1,8 +1,7 @@
 """
 THÀNH VIÊN 3 - Đọc dữ liệu và chuẩn bị dữ liệu cho Surprise.
 
-Lưu ý:
-- Thành viên 1 và 2 đang dùng MovieLens 1M với các file ratings.dat, movies.dat, users.dat.
+- Đang dùng MovieLens 1M với các file ratings.dat, movies.dat, users.dat.
 - Surprise không dùng trực tiếp ma trận User-Item rộng.
 - Surprise cần dữ liệu dạng bảng dài gồm: userId, movieId, rating.
 """
