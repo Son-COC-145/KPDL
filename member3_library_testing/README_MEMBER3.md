@@ -94,7 +94,7 @@ KPDL-dev2/
     └── visualization.py
 ```
 
-Lưu ý: `scikit-surprise` không sử dụng trực tiếp ma trận User-Item dạng rộng `user_item_matrix_clean.csv`. Thư viện này cần dữ liệu dạng bảng dài gồm:
+`scikit-surprise` không sử dụng trực tiếp ma trận User-Item dạng rộng `user_item_matrix_clean.csv`. Thư viện này cần dữ liệu dạng bảng dài gồm:
 
 ```text
 userId, movieId, rating
