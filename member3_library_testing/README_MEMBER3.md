@@ -100,7 +100,7 @@ KPDL-dev2/
 userId, movieId, rating
 ```
 
-Vì vậy phần Thành viên 3 đọc trực tiếp từ `ratings.dat`, sau đó tự chuyển sang định dạng phù hợp cho Surprise.
+Đọc trực tiếp từ `ratings.dat`, sau đó tự chuyển sang định dạng phù hợp cho Surprise.
 
 ---
 
@@ -115,14 +115,6 @@ users.dat
 ```
 
 Phần `Sample 100K from MovieLens 1M` trong thực nghiệm là **100.000 dòng rating được trích mẫu từ MovieLens 1M sau tiền xử lý**, không phải bộ MovieLens 100K gốc.
-
-Khi viết báo cáo, nên diễn đạt là:
-
-> Nhóm thực nghiệm trên bộ MovieLens 1M và một tập mẫu 100.000 lượt đánh giá được trích từ MovieLens 1M sau tiền xử lý nhằm đánh giá ảnh hưởng của quy mô dữ liệu đến độ chính xác và thời gian thực thi.
-
-Không nên ghi nhầm là nhóm dùng MovieLens 100K gốc nếu chưa tải thêm bộ `u.data`, `u.item`, `u.user`.
-
----
 
 ## 5. Yêu cầu môi trường
 
@@ -271,27 +263,7 @@ Kết quả demo hiện tại:
 
 ---
 
-## 11. Dùng kết quả cho báo cáo
-
-Phần này phục vụ:
-
-```text
-Chương 3 - III. Cài đặt mô hình bằng thư viện chuyên dụng
-Chương 3 - IV. Đánh giá và chứng minh thuật toán
-```
-
-Khi viết báo cáo, có thể sử dụng:
-
-- `evaluation_results.csv` để lập bảng kết quả;
-- `rmse_comparison.png` để minh họa so sánh sai số RMSE;
-- `mae_comparison.png` để minh họa so sánh sai số MAE;
-- `runtime_comparison.png` để minh họa thời gian thực thi;
-- `scale_comparison.png` để chứng minh ảnh hưởng của quy mô dữ liệu;
-- `top5_recommendations_svd_demo.csv` để minh họa kết quả gợi ý Top 5 phim.
-
----
-
-## 12. Lưu ý khi đưa lên Git
+## 11. Lưu ý khi đưa lên Git
 
 Không upload thư mục môi trường ảo `.venv`.
 
@@ -302,13 +274,3 @@ Nên có file `.gitignore` ở thư mục gốc project với nội dung:
 __pycache__/
 *.pyc
 ```
-
-Các thư mục/file nên upload cho phần Thành viên 3:
-
-```text
-member3_library_testing/
-member3_outputs/
-.gitignore
-```
-
-Không cần upload lại dữ liệu `.dat` nếu dữ liệu đã có sẵn trên branch/repo chung của nhóm.
