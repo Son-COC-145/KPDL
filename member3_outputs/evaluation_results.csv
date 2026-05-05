@@ -1,0 +1,9 @@
+﻿Dataset,Model,RMSE,MAE,TrainTimeSeconds,TestTimeSeconds,TotalTimeSeconds,TestSize
+Sample 100K from MovieLens 1M,KNNBasic_Cosine,1.0349,0.8185,1.3586,0.9665,2.3251,20000
+Sample 100K from MovieLens 1M,KNNBasic_Pearson,1.1536,0.9159,1.767,0.9239,2.6909,20000
+Sample 100K from MovieLens 1M,KNNWithMeans_Cosine,1.0068,0.7852,1.3667,1.1241,2.4908,20000
+Sample 100K from MovieLens 1M,SVD,0.9492,0.7546,0.773,0.1513,0.9242,20000
+MovieLens 1M filtered,KNNBasic_Cosine,0.9764,0.7707,55.3224,89.7716,145.094,199031
+MovieLens 1M filtered,KNNBasic_Pearson,0.9617,0.7655,64.5777,80.6004,145.1781,199031
+MovieLens 1M filtered,KNNWithMeans_Cosine,0.9383,0.7473,52.3679,76.8357,129.2036,199031
+MovieLens 1M filtered,SVD,0.8725,0.6852,7.2341,2.1574,9.3916,199031

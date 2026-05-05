@@ -1,0 +1,51 @@
+"""
+THÀNH VIÊN 3 - Tạo ghi chú báo cáo tự động.
+"""
+
+from config import OUTPUT_DIR
+
+
+def write_report_notes():
+    text = """GHI CHÚ BÁO CÁO - THÀNH VIÊN 3
+
+1. Vị trí trong báo cáo:
+- Chương 3, Mục III: Cài đặt mô hình bằng thư viện chuyên dụng.
+- Chương 3, Mục IV: Đánh giá và chứng minh thuật toán.
+
+2. Dữ liệu sử dụng:
+- Nhóm hiện đang dùng MovieLens 1M với các file ratings.dat, movies.dat, users.dat.
+- Thành viên 3 sử dụng cùng dữ liệu gốc với Thành viên 1 và Thành viên 2.
+- Để tương thích với data_prep.py, dữ liệu được lọc theo điều kiện:
+  + Giữ phim có ít nhất 20 lượt đánh giá.
+  + Giữ user có ít nhất 20 lượt đánh giá.
+- Tập Sample 100K là 100.000 dòng rating được trích từ MovieLens 1M sau tiền xử lý.
+- Đây không phải MovieLens 100K gốc. Nếu báo cáo không tải thêm bộ 100K thật, nên ghi là "mẫu 100K trích từ MovieLens 1M".
+
+3. Mô hình thư viện sử dụng:
+- KNNBasic_Cosine.
+- KNNBasic_Pearson.
+- KNNWithMeans_Cosine.
+- SVD.
+
+4. Chỉ số đánh giá:
+- RMSE: sai số căn trung bình bình phương, càng nhỏ càng tốt.
+- MAE: sai số tuyệt đối trung bình, càng nhỏ càng tốt.
+- TrainTimeSeconds: thời gian huấn luyện.
+- TestTimeSeconds: thời gian kiểm thử.
+- TotalTimeSeconds: tổng thời gian thực thi.
+
+5. File kết quả:
+- evaluation_results.csv: bảng kết quả RMSE, MAE và thời gian chạy.
+- dataset_summary.csv: thống kê quy mô dữ liệu.
+- rmse_comparison.png: biểu đồ so sánh RMSE.
+- mae_comparison.png: biểu đồ so sánh MAE.
+- runtime_comparison.png: biểu đồ so sánh thời gian thực thi.
+- scale_comparison.png: biểu đồ ảnh hưởng của quy mô dữ liệu.
+- top5_recommendations_svd_demo.csv: ví dụ Top 5 phim gợi ý bằng SVD.
+
+6. Nhận xét mẫu:
+Mô hình KNN có ưu điểm là dễ hiểu và gần với nguyên lý lọc cộng tác truyền thống, nhưng khi quy mô dữ liệu tăng, thời gian tính toán có xu hướng tăng do phải dựa trên độ tương đồng giữa các user. Mô hình SVD biểu diễn user và movie trong không gian đặc trưng tiềm ẩn nên thường ổn định hơn trên dữ liệu thưa. Việc so sánh giữa tập Sample 100K và MovieLens 1M giúp chứng minh ảnh hưởng của quy mô dữ liệu đến sai số dự đoán và thời gian thực thi.
+"""
+
+    OUTPUT_DIR.mkdir(exist_ok=True)
+    (OUTPUT_DIR / "report_notes_member3.txt").write_text(text, encoding="utf-8")

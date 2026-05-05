@@ -1,0 +1,4 @@
+﻿Dataset,Ratings,Users,Movies
+MovieLens 1M raw,1000209,6040,3706
+MovieLens 1M after filtering,995154,6022,3043
+100K sample from filtered MovieLens 1M,100000,5943,3019
