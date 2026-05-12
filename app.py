@@ -93,13 +93,21 @@ def recommend_movies(user_id, top_n=5):
     if user_id not in df.index:
         return None
 
-    sim_scores = similarity_matrix[user_id]
-    weighted_scores = df.T.dot(sim_scores)
+    # Similarity between the target user and all users
+    sim_scores = similarity_matrix[user_id].copy()
+    # Avoid leaking the user's own ratings into the score
+    sim_scores.loc[user_id] = 0.0
+
+    # Predicted rating for each movie:
+    #   score(m) = sum_u sim(user,u) * rating(u,m) / sum_u |sim(user,u)| where rating(u,m) > 0
+    numerator = df.mul(sim_scores, axis=0).sum(axis=0)
+    denominator = df.ne(0).mul(sim_scores.abs(), axis=0).sum(axis=0)
+    predicted = numerator / (denominator + 1e-9)
 
     watched = df.loc[user_id]
-    weighted_scores = weighted_scores[watched == 0]
+    predicted = predicted[watched == 0]
 
-    return weighted_scores.sort_values(ascending=False).head(top_n)
+    return predicted.sort_values(ascending=False).head(top_n)
 
 # =============================
 # UI INPUT (AUTO)
@@ -118,11 +126,12 @@ if user_input.strip() != "":
             st.success(f"Top 5 phim đề xuất cho User {user_id}")
 
             result_df = pd.DataFrame({
-                "MovieID": results.index,
-                "Predicted Score": results.values
+                "Rank": range(1, len(results) + 1),
+                "MovieName": results.index,
+                "Predicted Score": np.round(results.values, 2),
             })
 
-            st.dataframe(result_df, use_container_width=True)
+            st.dataframe(result_df, use_container_width=True, hide_index=True)
 
     except:
         st.warning("⚠️ UserID phải là số!")
